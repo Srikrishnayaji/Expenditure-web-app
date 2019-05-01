@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock title %}</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'datacollector_app/bootstrap.min.css' %}" >
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <span class='navbar-brand'>{{ user }}'s App</span>
+            <ul class='navbar-nav ml-auto'>
+                <li class='nav-item'><a href="{% url 'dca:datacollector-home' %}" class='nav-link'>Home</a></li>
+                <li class='nav-item'><a href="{% url 'dca:data-exp-add' %}" class='nav-link'>Update Expenditure</a></li>
+                <li class='nav-item'><a href="{% url 'datastore-user-delete' %}" class='nav-link'>Delete Account</a></li>
+                <li class='nav-item'><a href="{% url 'datastore-logout' %}" class='nav-link'>Logout</a></li>
+            </ul>
+        </nav>
+        <br />
+            {% if messages %}
+                {% for message in messages %}
+                    <div class='container alert alert-{{ message.tags}}'>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <br />
+    <div class = 'container-fluid'>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    </body>
+</html>

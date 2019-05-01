@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Delete Account</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'datacollector_app/bootstrap.min.css' %}" >
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <div class='container'>
+                <div class='alert alert-danger'>Are you sure that you want to delete your account?</div>
+            <button type="submit" class='btn btn-danger'>Yes</button>
+            <a href="{% url 'dca:datacollector-home' %}" class='btn btn-success'>No</a>
+            </div>
+        </form>
+    </body>
+</html>

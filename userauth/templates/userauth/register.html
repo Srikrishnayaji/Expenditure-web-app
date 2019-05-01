@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'datacollector_app/bootstrap.min.css' %}" >
+    </head>
+    <body>
+        <div class='container'>
+            <br />
+            <br />
+        <fieldset>
+            <legend>
+                Registration Form
+            </legend>
+        <form method="post">
+            {% csrf_token %}
+                {% for x in form %}
+                    {{ x.label }}
+                    <br />
+                    {{ x }}
+                    <br />
+                    {% if x.errors %}
+                        {% for error in errors %}
+                            <div class='container-fluid alert alert-danger'>
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <br />
+                {% endfor %}
+            <button type="submit" class='btn btn-primary'>Register</button>
+        </div>
+    </form>
+</fieldset>
+<br />
+            <div class='container'>
+                Already have an account? Then <a href='{% url 'datastore-login'%}' class='btn btn-secondary'> Login</a>
+            </div>
+    </body>
+</html>

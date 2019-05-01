@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Logout</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'datacollector_app/bootstrap.min.css' %}" >
+    </head>
+    <body>
+        <div class='container'>
+            <h1 class='alert alert-primary'>You have Successfully Logged Out.</h1>
+            <a href="{% url 'datastore-login' %}" class='btn btn-secondary'>Login Again</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'datacollector_app/head.html' %}
+{% block title %}
+    Add Expenditure
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for x in form %}
+        <div class="form-group">
+             {{ x.label }}:
+             <br />
+             {{ x }}
+             <br />
+         </div>
+        {% endfor %}
+        <button type="submit" class='btn btn-success'>Add Expenditure</button>
+    </form>
+</div>
+{% endblock content %}
